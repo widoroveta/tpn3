@@ -27,45 +27,18 @@ public class Libro {
     public Libro() {
         this.titulo = new String();
         this.precio = 0;
-        this.stock= 0;
+        this.stock = 0;
         this.autor = new Autor[10];
-
     }
 
-    public void setAutor(Autor autor[]) {
- for (int i =0; i<autor.length;i++)
-     this.autor[i] = autor[i];
-
-
-    }
-
-    public void setPrecio(double precio) {
-        Precio = precio;
-    }
-
-    public void setTitulo(String titulo) {
-        Titulo = titulo;
-    }
-
-    public void setStock(int stock) {
-        Stock = stock;
-    }
-
+    public void setAutor(Autor autor[]) { this.autor = autor; }
+    public void setPrecio(double precio) { precio = precio; }
+    public void setTitulo(String titulo) { this.titulo = titulo; }
+    public void setStock(int stock) { this.stock= stock; }
     public Autor[] getAutor() {
         return this.autor;
     }
-
-    public double getPrecio() {
-        return Precio;
-    }
-
-    public int getStock() {
-        return Stock;
-    }
-
-    public String getTitulo() {
-        return Titulo;
-    }
-
-
+    public double getPrecio() { return this.precio;   }
+    public int getStock() { return this.stock; }
+    public String getTitulo() {return this.titulo; }
 }

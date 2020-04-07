@@ -1,12 +1,21 @@
 import com.sun.org.apache.bcel.internal.generic.LUSHR;
 
 import java.util.Scanner;
+import java.util.UUID;
 
 public class Main {
     static Scanner scan;
 
     public static void main(String[] args) {
         // write your code here
+        System.out.println("Bienvenidos al tp numero 2 de objetos");
+        System.out.println("Elija el ejercicio");
+        System.out.println("1)libro-autor");
+
+      int opcion =0;
+      scan=new Scanner(System.in);
+      opcion=scan.nextInt();
+      switch (opcion) {
         /*1. Es necesario modelar el objeto de tipo Libro con las siguientes caracteristicas, titulo,
     precio, stock y Autor, este último posee las características de nombre, apellido,
     email y genero ( ‘M’ o ‘F’ ). Para este ejercicio vamos a asumir que un libro tiene un
@@ -26,8 +35,12 @@ public class Main {
     h. Modificar la clase Libro, para que acepte más de 1 Autor. Y realizar los
     cambios necesarios en el método del punto g, para imprimir un nuevo
     mensaje que liste los autores que contribuyeron a ese libro.*/
-        Libro m=IngresarLibro();
-        Printear(m);
+          case 1:
+              Autor autor[] = new Autor[10];
+            autor[0].setNombre("guido");
+              // autor=IngresarAutores();
+             //PrintearAutor(autor);
+          break;
        /* 2. Nos contratan para hacer un programa que lleve el control de las ventas de un
         local. Para esto es necesario modelar la clase Cliente, que posee un atributo id
         como identificador del cliente, el mismo debe ser un valor compuesto por letras y
@@ -58,10 +71,16 @@ public class Main {
         precio unitario. Considere las modificaciones necesarias en el tipo Factura
         para que el mismo pueda almacenar múltiples Ítems de venta y a su vez
         calcular los montos totales con y sin el descuento aplicado.*/
+          case 2:
+              UUID id = UUID.randomUUID();
+              System.out.println("id:"+id);
+              break;
 
+      }
     }
 
     public static void PrintearAutor(Autor[] autors) {
+
         for (int i = 0; i < autors.length; i++) {
             System.out.println("Nombre: " + autors[i].getNombre());
             System.out.println("Apellido: " + autors[i].getApellido());
@@ -79,26 +98,29 @@ public class Main {
 
     public static Autor[] IngresarAutores() {
         scan = new Scanner(System.in);
-        Autor [] autors;
-        autors=new Autor[1];
+        Autor [] autors=new Autor[5];
         char s = 's';
         int i = 0;
         while (s == 's') {
 
             System.out.println("Ingrese el Nombre del autor");
-            String  nombre = new String();
-            nombre=scan.nextLine();
-            autors[i].setNombre(nombre);
-            System.out.println("Ingrese el Apellido del autor");
+
+            String nombre = new String();
+            System.out.println("ok");
+            nombre = "guido";//scan.nextLine();
+           autors[0].setNombre(nombre);
+           /* System.out.println("Ingrese el Apellido del autor");
             autors[i].setApellido(scan.nextLine());
             System.out.println("Ingrese el Email del autor");
             autors[i].setEmail(scan.nextLine());
             System.out.println("Ingrese el Genero del autor");
             autors[i].setGenero(scan.next().charAt(0));
             System.out.println("Aprete S si desea seguir agregando autores ");
-            s = scan.next().charAt(0);
-
+            i++;*/
+        //    s = scan.next().charAt(0);
+       s='n';
         }
+
 
         return autors;
     }
