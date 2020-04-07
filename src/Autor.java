@@ -18,15 +18,15 @@ public class Autor {
     h. Modificar la clase Libro, para que acepte más de 1 Autor. Y realizar los
     cambios necesarios en el método del punto g, para imprimir un nuevo
     mensaje que liste los autores que contribuyeron a ese libro.*/
-    private String Nombre;
-    private String Apellido;
-    private String Email;
+    private String nombre;
+    private String apellido;
+    private String email;
     private char genero;
 
     public Autor() {
-        this.Apellido = new String();
-        this.Nombre = new String();
-        this.Email = new String();
+        this.apellido = new String();
+        this.nombre = new String();
+        this.email = new String();
         this.genero = 0;
     }
 
@@ -35,23 +35,23 @@ public class Autor {
     }
 
     public String getApellido() {
-        return Apellido;
+        return apellido;
     }
 
     public String getNombre() {
-        return Nombre;
+        return nombre;
     }
 
     public String getEmail() {
-        return Email;
+        return email;
     }
 
     public void setApellido(String apellido) {
-        Apellido = apellido;
+        apellido = apellido;
     }
 
     public void setEmail(String email) {
-        Email = email;
+        this.email = email;
     }
 
     public void setGenero(char genero) {
@@ -59,7 +59,7 @@ public class Autor {
     }
 
     public void setNombre(String nombre) {
-        Nombre = nombre;
+        nombre = nombre;
     }
 
 

@@ -18,16 +18,16 @@ public class Libro {
     h. Modificar la clase Libro, para que acepte más de 1 Autor. Y realizar los
     cambios necesarios en el método del punto g, para imprimir un nuevo
     mensaje que liste los autores que contribuyeron a ese libro.*/
-    private String Titulo;
-    private double Precio;
-    private int Stock;
+    private String titulo;
+    private double precio;
+    private int stock;
     private Autor[] autor;
 
     //    private Autor Autores [];
     public Libro() {
-        this.Titulo = new String();
-        this.Precio = 0;
-        this.Stock = 0;
+        this.titulo = new String();
+        this.precio = 0;
+        this.stock= 0;
         this.autor = new Autor[10];
 
     }
