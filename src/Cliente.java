@@ -30,11 +30,19 @@ public class Cliente {
         precio unitario. Considere las modificaciones necesarias en el tipo Factura
         para que el mismo pueda almacenar múltiples Ítems de venta y a su vez
         calcular los montos totales con y sin el descuento aplicado.*/
-   private String id;
-   private String nombre;
-   private String email;
-   private double percent;
-    public Cliente (){}
+    private String id;
+    private String nombre;
+    private String email;
+    private double percent;
+
+    public Cliente(String email, String nombre, String id, double percent) {
+        this.email = new String();
+        this.email = email;
+        this.id = new String();
+        this.id = id;
+        this.nombre = new String();
+        //  this.nombre
+    }
 
 
 }

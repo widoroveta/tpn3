@@ -1,4 +1,4 @@
-import com.sun.org.apache.bcel.internal.generic.LUSHR;
+
 
 import java.util.Scanner;
 import java.util.UUID;
@@ -11,11 +11,12 @@ public class Main {
         System.out.println("Bienvenidos al tp numero 2 de objetos");
         System.out.println("Elija el ejercicio");
         System.out.println("1)libro-autor");
+        System.out.println("2)Cliente");
 
-      int opcion =0;
-      scan=new Scanner(System.in);
-      opcion=scan.nextInt();
-      switch (opcion) {
+        int opcion = 0;
+        scan = new Scanner(System.in);
+        opcion = scan.nextInt();
+        switch (opcion) {
         /*1. Es necesario modelar el objeto de tipo Libro con las siguientes caracteristicas, titulo,
     precio, stock y Autor, este último posee las características de nombre, apellido,
     email y genero ( ‘M’ o ‘F’ ). Para este ejercicio vamos a asumir que un libro tiene un
@@ -35,12 +36,12 @@ public class Main {
     h. Modificar la clase Libro, para que acepte más de 1 Autor. Y realizar los
     cambios necesarios en el método del punto g, para imprimir un nuevo
     mensaje que liste los autores que contribuyeron a ese libro.*/
-          case 1:
-              Autor autor[] = new Autor[10];
-            autor[0].setNombre("guido");
-              // autor=IngresarAutores();
-             //PrintearAutor(autor);
-          break;
+            case 1:
+                Autor[] a = IngresarAutores();
+                PrintearAutor(a);
+                /*        Libro m=IngresarLibro();
+                Printear(m);*/
+                break;
        /* 2. Nos contratan para hacer un programa que lleve el control de las ventas de un
         local. Para esto es necesario modelar la clase Cliente, que posee un atributo id
         como identificador del cliente, el mismo debe ser un valor compuesto por letras y
@@ -71,74 +72,83 @@ public class Main {
         precio unitario. Considere las modificaciones necesarias en el tipo Factura
         para que el mismo pueda almacenar múltiples Ítems de venta y a su vez
         calcular los montos totales con y sin el descuento aplicado.*/
-          case 2:
-              UUID id = UUID.randomUUID();
-              System.out.println("id:"+id);
-              break;
+            case 2:
+                UUID id = UUID.randomUUID();
+                System.out.println("id:" + id);
+                break;
 
-      }
+        }
     }
 
     public static void PrintearAutor(Autor[] autors) {
-
-        for (int i = 0; i < autors.length; i++) {
-            System.out.println("Nombre: " + autors[i].getNombre());
-            System.out.println("Apellido: " + autors[i].getApellido());
-            System.out.println("Email: " + autors[i].getEmail());
-            System.out.println("Genero: " + autors[i].getGenero());
+        System.out.println("okkk" + autors.length);
+        Autor[] a = autors;
+        for (int i = 0; i < a.length; i++) {
+            System.out.println("Nombre: " + a[i].getNombre());
+            System.out.println("Apellido: " + a[i].getApellido());
+            System.out.println("Email: " + a[i].getEmail());
+            System.out.println("Genero: " + a[i].getGenero());
         }
     }
 
     public static void Printear(Libro m) {
         System.out.println("Titulo: " + m.getTitulo());
-        PrintearAutor(m.getAutor());
         System.out.println("Precio: " + m.getPrecio());
         System.out.println("Stock" + m.getStock());
+        PrintearAutor(m.getAutor());
     }
 
     public static Autor[] IngresarAutores() {
         scan = new Scanner(System.in);
-        Autor [] autors=new Autor[5];
-        char s = 's';
+        Autor[] a;
         int i = 0;
+        a = new Autor[10];
+        char s = 's';
+        Scanner m = new Scanner(System.in);
         while (s == 's') {
-
-            System.out.println("Ingrese el Nombre del autor");
-
+            System.out.println("Ingrese el nombre del autor");
             String nombre = new String();
-            System.out.println("ok");
-            nombre = "guido";//scan.nextLine();
-           autors[0].setNombre(nombre);
-           /* System.out.println("Ingrese el Apellido del autor");
-            autors[i].setApellido(scan.nextLine());
-            System.out.println("Ingrese el Email del autor");
-            autors[i].setEmail(scan.nextLine());
-            System.out.println("Ingrese el Genero del autor");
-            autors[i].setGenero(scan.next().charAt(0));
+            nombre = scan.nextLine();
+            System.out.println("Ingrese el apellido del autor");
+            String Apellido = new String();
+            Apellido = scan.nextLine();
+            System.out.println("Ingrese el email del autor");
+            String Email = new String();
+            Email = scan.nextLine();
+            System.out.println("Ingrese el genero del autor");
+            char genero = scan.next().charAt(0);
+            a[i] = new Autor(nombre, Apellido, Email, genero);
             System.out.println("Aprete S si desea seguir agregando autores ");
-            i++;*/
-        //    s = scan.next().charAt(0);
-       s='n';
+            i++;
+            s = m.next().charAt(0);
         }
+        Autor[] au = new Autor[i];
 
-
-        return autors;
+        for (int d = 0; d < i; d++) {
+            au[d] = a[d];
+        }
+        System.out.println(au.length);
+        return au;
     }
 
     public static Libro IngresarLibro() {
-        Libro libro = new Libro();
+
         scan = new Scanner(System.in);
+
         System.out.println("Ingrese Titulo");
-        libro.setTitulo(scan.nextLine());
-        libro.setAutor(IngresarAutores());
+        String titulo = new String();
+        titulo = scan.nextLine();
 
         System.out.println("Ingrese Precio");
-        libro.setPrecio(scan.nextDouble());
-
+        double precio = scan.nextDouble();
         System.out.println("Ingrese Stock");
-        libro.setStock(scan.nextInt());
+        int stock = scan.nextInt();
+        Autor[] a;
+        a = IngresarAutores();
+        Libro libro = new Libro(titulo, a, precio, stock);
         return libro;
     }
 }
+
 
 

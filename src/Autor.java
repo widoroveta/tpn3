@@ -22,15 +22,13 @@ public class Autor {
     private String apellido;
     private String email;
     private char genero;
- public autor (String nombre,String apellido, String email ,char genero){
-     this.apellido = new String();
-     this.apellido = apellido
-     this.nombre = new String();
-     this.nombre = nombre;
-     this.email = new String();
-     this.email = email;
-     this.genero = 0;
- }
+
+    public Autor(String nombre, String apellido, String email, char genero) {
+        this.apellido = apellido;
+        this.nombre = nombre;
+        this.email = email;
+        this.genero = genero;
+    }
 
     public Autor() {
         this.apellido = new String();
@@ -47,28 +45,23 @@ public class Autor {
         return apellido;
     }
 
-    public String getNombre() { return this.nombre;
+    public String getNombre() {
+        return this.nombre;
     }
 
     public String getEmail() {
         return email;
     }
-
     public void setApellido(String apellido) {
         this.apellido = apellido;
     }
-
     public void setEmail(String email) {
         this.email = email;
     }
-
     public void setGenero(char genero) {
         this.genero = genero;
     }
-
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-
-
 }

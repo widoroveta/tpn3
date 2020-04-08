@@ -28,17 +28,33 @@ public class Libro {
         this.titulo = new String();
         this.precio = 0;
         this.stock = 0;
-        this.autor = new Autor[10];
+        this.autor[0] = new Autor();
     }
 
-    public void setAutor(Autor autor[]) { this.autor = autor; }
+    public Libro(String titulo, Autor autor[], double precio, int stock) {
+        this.titulo = titulo;
+        this.precio = precio;
+        this.stock = stock;
+        this.autor = autor;
+    }
+
+    public void setAutor(Autor autor[]) {
+        this.autor = autor;
+    }
     public void setPrecio(double precio) { precio = precio; }
     public void setTitulo(String titulo) { this.titulo = titulo; }
-    public void setStock(int stock) { this.stock= stock; }
+
+    public void setStock(int stock) {
+        this.stock = stock;
+    }
+
     public Autor[] getAutor() {
         return this.autor;
     }
-    public double getPrecio() { return this.precio;   }
+
+    public double getPrecio() {
+        return this.precio;
+    }
     public int getStock() { return this.stock; }
     public String getTitulo() {return this.titulo; }
 }
