@@ -1,5 +1,7 @@
 
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Scanner;
 import java.util.UUID;
 
@@ -75,6 +77,9 @@ public class Main {
             case 2:
                 UUID id = UUID.randomUUID();
                 System.out.println("id:" + id);
+                LocalDateTime date;
+
+               // System.out.println("Date "+ date.now);
                 break;
 
         }

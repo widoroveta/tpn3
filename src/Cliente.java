@@ -36,12 +36,17 @@ public class Cliente {
     private double percent;
 
     public Cliente(String email, String nombre, String id, double percent) {
-        this.email = new String();
         this.email = email;
-        this.id = new String();
         this.id = id;
-        this.nombre = new String();
-        //  this.nombre
+        this.percent=percent;
+        this.nombre=nombre;
+    }
+    public Cliente(){
+        this.email = new String();
+        this.id = new String();
+        this.percent=percent;
+        this.nombre=new String();
+
     }
 
 
