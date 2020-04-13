@@ -75,6 +75,8 @@ public class Main {
         para que el mismo pueda almacenar múltiples Ítems de venta y a su vez
         calcular los montos totales con y sin el descuento aplicado.*/
             case 2:
+                Factura factura = IngresaFactura();
+
 
                 break;
 
@@ -194,15 +196,24 @@ public class Main {
             i++;
             choose=scan.nextLine();
         }
-          ItemVenta[] item = new ItemVenta[i];
+        ItemVenta[] item = new ItemVenta[i];
 
         for (int d = 0; d < i; d++) {
             item[d] = itemVenta[d];
         }
-        String  id = UUID.randomUUID().toString();
-        String fecha=LocalDate.now().toString();
-        Factura factura = new Factura(id,fecha,cliente,item);
+        String id = UUID.randomUUID().toString();
+        String fecha = LocalDate.now().toString();
+        Factura factura = new Factura(id, fecha, cliente, item);
         return factura;
+    }
+
+    public static void PrintearFactura(Factura factura) {
+        Cliente cliente = factura.getCliente();
+        System.out.println("Cliente {Nombre:" + cliente.getNombre() + "Email" + cliente.getEmail() + "Id:"cliente.getId());
+        ItemVenta[] itemVentas = factura.getItemVenta();
+        for (int i = 0; i < itemVentas.length; i++) {
+            System.out.println("Item {Nombre" + itemVentas[i].getNombre() + "Descripcion" + itemVentas[i].getDescription() +);
+        }
     }
 }
 
