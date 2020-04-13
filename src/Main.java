@@ -75,11 +75,7 @@ public class Main {
         para que el mismo pueda almacenar múltiples Ítems de venta y a su vez
         calcular los montos totales con y sin el descuento aplicado.*/
             case 2:
-                UUID id = UUID.randomUUID();
-                System.out.println("id:" + id);
-                LocalDateTime date;
 
-               // System.out.println("Date "+ date.now);
                 break;
 
         }
@@ -136,6 +132,7 @@ public class Main {
         return au;
     }
 
+
     public static Libro IngresarLibro() {
 
         scan = new Scanner(System.in);
@@ -152,6 +149,60 @@ public class Main {
         a = IngresarAutores();
         Libro libro = new Libro(titulo, a, precio, stock);
         return libro;
+    }
+    public static Cliente  IngresarCliente (){
+        scan= new Scanner(System.in);
+        System.out.println("Ingrese el Nombre del cliente  : ");
+        String nombre = scan.nextLine();
+
+        System.out.println("Ingrese el Email del cliente  : ");
+        String email = scan.nextLine();
+
+        System.out.println("Ingrese el porcentaje de descuento del cliente  : ");
+        double percent = scan.nextDouble();
+        String  id = UUID.randomUUID().toString();
+
+        Cliente cliente = new Cliente(email,nombre,id,percent);
+        return  cliente;
+
+    }
+    public static   ItemVenta IngresarItemDeVenta()
+    {
+        scan=new Scanner(System.in);
+        System.out.println("Ingrese el Nombre del objeto");
+        String nombre = scan.nextLine();
+        System.out.println("Ingrese la descripcion del objeto");
+        String descripcion = scan.nextLine();
+        System.out.println("Ingrese el precio por unidad del objeto");
+        double precio=scan.nextDouble();
+        System.out.println("Ingrese el cantidad  del objeto");
+        int cantidad =scan.nextInt();
+        String  id = UUID.randomUUID().toString();
+        ItemVenta item = new ItemVenta(id,nombre,descripcion,precio,cantidad);
+        return  item;
+    }
+    public static Factura IngresaFactura (){
+        Cliente cliente = IngresarCliente();
+        scan=new Scanner(System.in);
+        String  choose=new String();
+        choose="yes";
+        int i=0;
+        ItemVenta itemVenta[]=new ItemVenta[50];
+        while (choose.equalsIgnoreCase("Yes"))
+        {
+           itemVenta[i] =IngresarItemDeVenta();
+            i++;
+            choose=scan.nextLine();
+        }
+          ItemVenta[] item = new ItemVenta[i];
+
+        for (int d = 0; d < i; d++) {
+            item[d] = itemVenta[d];
+        }
+        String  id = UUID.randomUUID().toString();
+        String fecha=LocalDate.now().toString();
+        Factura factura = new Factura(id,fecha,cliente,item);
+        return factura;
     }
 }
 

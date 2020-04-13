@@ -42,12 +42,42 @@ public class Cliente {
         this.nombre=nombre;
     }
     public Cliente(){
-        this.email = new String();
-        this.id = new String();
-        this.percent=percent;
-        this.nombre=new String();
+        this.email = "";
+        this.id = UUID.randomUUID().toString() ;
+        this.percent=0;
+        this.nombre= "";
 
     }
 
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public double getPercent() {
+        return percent;
+    }
+
+    public void setPercent(double percent) {
+        this.percent = percent;
+    }
 }
